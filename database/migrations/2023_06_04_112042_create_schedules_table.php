@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->comment('ユーザーID');
+            $table->string('title')->comment('タイトル');
+            $table->string('description')->nullable()->comment('概要');
+            $table->date('start_date')->comment('開始日');
+            $table->date('end_date')->comment('終了日');
             $table->timestamps();
         });
     }
